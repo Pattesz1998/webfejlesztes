@@ -8,11 +8,11 @@
         <version>2.4.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>nazeem.web</groupId>
-    <artifactId>ThymeleafMySql</artifactId>
+    <groupId>webapp</groupId>
+    <artifactId>WebApp</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>ThymeleafMySql</name>
-    <description>Demo project for Spring Boot</description>
+    <name>WebApp</name>
+    <description>SpringBoot project for DE IK webfejlesztés Course</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
