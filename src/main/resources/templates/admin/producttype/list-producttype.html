@@ -3,17 +3,17 @@
       xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
       layout:decorate="layout">
 <head>
-    <title>Dashboard</title>
+    <title>Irányítópult</title>
 </head>
 <body>
 <section layout:fragment="header">
     <h1>
-        Product Type List
-        <small>Control panel</small>
+        Terméktípus lista
+        <small>Admin felület</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li><a href="/"><i class="fa fa-dashboard"></i> Főoldal</a></li>
+        <li class="active">Irányítópult</li>
     </ol>
 </section>
 <div layout:fragment="content">
@@ -21,28 +21,28 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Product Type List</h3>
+                    <h3 class="box-title">Terméktípus lista</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
                     <div class="box-footer center">
                         <a th:href="@{/producttype/add}">
-                            <button type="button" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Add new
+                            <button type="button" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Új
                             </button>
                         </a>
                     </div>
                     <div th:if="${param.success}">
                         <div class="alert alert-success alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                            <h4><i class="icon fa fa-check"></i> Success!</h4>
-                            Information saved successfully.
+                            <h4><i class="icon fa fa-check"></i> Siker!</h4>
+                            Az információk sikeresen mentésre kerültek.
                         </div>
                     </div>
                     <div th:if="${param.deleted}">
                         <div class="alert alert-info alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                            <h4><i class="icon fa fa-check"></i> Deleted!</h4>
-                            Information deleted successfully.
+                            <h4><i class="icon fa fa-check"></i> Törölve!</h4>
+                            Az információk sikeresen törlésre kerültek.
                         </div>
                     </div>
                     <div class="row">
@@ -51,20 +51,20 @@
                                    aria-describedby="example1_info">
                                 <thead class="thead">
                                 <tr>
-                                    <th>Product Type ID</th>
-                                    <th>Name</th>
-                                    <th>Actions</th>
+                                    <th>Termék azonosító</th>
+                                    <th>Név</th>
+                                    <th>Szerkesztés</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <tr th:each="producttype : ${listProductTypes}">
-                                        <td th:text="${producttype.id}">Product Type ID</td>
-                                        <td th:text="${producttype.name}">Name</td>
-                                        <td>
-                                            <a href="#" class="btn btn-primary btn-xs purple editView" title="Edit" th:href="@{'/producttype/edit/' + ${producttype.id}}"><i class="fa fa-edit"></i> Edit</a>
-                                            <a href="#" class="btn btn-danger btn-xs purple deleteView" title="Delete" th:href="@{'/producttype/delete/' + ${producttype.id}}"><i class="fa fa-trash-o"></i> Delete</a>
-                                        </td>
-                                    </tr>
+                                <tr th:each="producttype : ${listProductTypes}">
+                                    <td th:text="${producttype.id}">Product Type ID</td>
+                                    <td th:text="${producttype.name}">Name</td>
+                                    <td>
+                                        <a href="#" class="btn btn-primary btn-xs purple editView" title="Szerkesztés" th:href="@{'/producttype/edit/' + ${producttype.id}}"><i class="fa fa-edit"></i> Edit</a>
+                                        <a href="#" class="btn btn-danger btn-xs purple deleteView" title="Törlés" th:href="@{'/producttype/delete/' + ${producttype.id}}"><i class="fa fa-trash-o"></i> Delete</a>
+                                    </td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -78,17 +78,17 @@
 
 <th:block layout:fragment="script">
     <script>
-      $(function () {
-        $('#example1').DataTable({
-          'paging'      : true,
-          'lengthChange': false,
-          'searching'   : true,
-          'ordering'    : true,
-          'info'        : true,
-          'autoWidth'   : false
+        $(function () {
+            $('#example1').DataTable({
+                'paging'      : true,
+                'lengthChange': false,
+                'searching'   : true,
+                'ordering'    : true,
+                'info'        : true,
+                'autoWidth'   : false
+            })
+            jQuery('#example1_wrapper input').addClass("form-control input-sm"); // modify table search input
         })
-        jQuery('#example1_wrapper input').addClass("form-control input-sm"); // modify table search input
-      })
     </script>
 </th:block>
 </body>
